@@ -19,7 +19,7 @@
         <activity
             android:name="com.thht.settings.device.DeviceSettings"
             android:exported="true"
-            android:label="@string/advanced_settings" >
+            android:label="@string/midocontrol_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" /> 
