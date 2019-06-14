@@ -21,19 +21,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from mido device
 $(call inherit-product, device/xiaomi/mido/device.mk)
 
+# Call MiuiCamera config
+$(call inherit-product, vendor/MiuiCamera/config.mk)
 
 # Inherit some common HavocOS stuff
-$(call inherit-product, vendor/havoc/config/common.mk)
-
-# Official
-export export HAVOC_BUILD_TYPE=Official
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 #Boot Animation res
 TARGET_BOOT_ANIMATION_RES := 1080
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    DEVICE_MAINTAINERS="Darkthur(Alif Fathur)"
+    
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mido
-PRODUCT_NAME := havoc_mido
+PRODUCT_NAME := aosp_mido
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 4
 PRODUCT_MANUFACTURER := Xiaomi
