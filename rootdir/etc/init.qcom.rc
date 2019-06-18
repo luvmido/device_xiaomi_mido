@@ -210,15 +210,16 @@ on boot
     setprop debug.sqlite.journalmode OFF
     setprop debug.sqlite.syncmode OFF
 	
-on late-fs
+on lateon late-fs
     # boot time fs tune
-    write /sys/block/sda/queue/iostats 0
-    write /sys/block/sda/queue/scheduler anxiety
-    write /sys/block/sda/queue/iosched/slice_idle 0
-    write /sys/block/sda/queue/read_ahead_kb 2048
-    write /sys/block/sda/queue/nr_requests 256
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/mmcblk0rpmb/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0rpmb/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048 
     write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0rpmb/queue/iostats 0
 
 # msm specific files that need to be created on /data
 on post-fs-data
